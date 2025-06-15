@@ -68,11 +68,11 @@
                         class="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-6 rounded-xl">
                         Kembali
                     </a>
-                    <button type="submit" class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-6 rounded-xl">
+                    <button type="submit" class="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-6 rounded-xl">
                         Kirim
                     </button>
                     <a href="{{ route('pengaduan.index') }}"
-                        class="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-6 rounded-xl">
+                        class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-6 rounded-xl">
                         Lihat Data Aduan
                     </a>
                 </div>

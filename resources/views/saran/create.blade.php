@@ -5,7 +5,7 @@
         <div class="max-w-10xl mx-auto bg-white shadow-md rounded-lg overflow-hidden sm:px-1 lg:px-1">
             <!-- Header -->
             @if (session('success'))
-                <div class="bg-green-100 text-green-500 p-4 rounded-lg mb-4">
+                <div class="bg-blue-100 text-blue-500 p-4 rounded-lg mb-4">
                     {{ session('success') }}
                 </div>
             @endif
@@ -67,11 +67,11 @@
                         class="bg-red-600 hover:bg-red-800 text-white font-bold py-2 px-6 rounded-xl max-w-30">
                         Kembali
                     </a>
-                    <button type="submit" class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-6 rounded-xl">
+                    <button type="submit" class="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-6 rounded-xl">
                         Kirim
                     </button>
                     <a href="{{ route('saran.index') }}"
-                        class="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-6 rounded-xl max-w-30">
+                        class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-6 rounded-xl max-w-30">
                         Lihat Saran Saya
                     </a>
                 </div>

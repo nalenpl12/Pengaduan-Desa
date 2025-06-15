@@ -16,6 +16,12 @@
 
             <!-- Status Aduan + Avatar -->
             <div class="flex items-center space-x-6">
+                <a href="{{ route('dashboard') }}" class="text-blue-800 font-semibold hover:underline text-sm sm:text-base">
+                    Dashboard
+                </a>
+                <a href="{{ route('pengaduan.index') }}" class="text-blue-800 font-semibold hover:underline text-sm sm:text-base">
+                    Data Aduan
+                </a>
                 <a href="{{ route('pengaduan.index') }}" class="text-blue-800 font-semibold hover:underline text-sm sm:text-base">
                     Status Aduan
                 </a>

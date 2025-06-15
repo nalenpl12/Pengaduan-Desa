@@ -60,9 +60,9 @@
         @endif
         <div class="mt-8 flex flex-wrap gap-4 p-6">
             <a href="{{ route('dashboard') }}"
-                class="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-2 rounded">Kembali</a>
+                class="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-2 rounded-xl">Dashboard</a>
             <a href="{{ route('pengaduan.create') }}"
-                class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 py-2 rounded">Buat Aduan</a>
+                class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 py-2 rounded-xl">Buat Aduan</a>
         </div>
     </div>
     <div class="max-w-10xl mx-auto px-4 py-8">

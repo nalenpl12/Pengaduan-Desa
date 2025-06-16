@@ -103,4 +103,11 @@ class PengaduanInfrastrukturController extends Controller
         return redirect()->route('pengaduan.index')->with('success', 'Data pengaduan berhasil diperbarui.');
     }
 
+    public function status()
+    {
+        $pengaduan = PengaduanInfrastruktur::where('user_id', Auth::id())->latest()->get();
+        return view('pengaduan.status', compact('pengaduan'));
+    }
+
+
 }

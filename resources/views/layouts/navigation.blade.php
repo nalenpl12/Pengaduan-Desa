@@ -22,7 +22,7 @@
                 <a href="{{ route('pengaduan.index') }}" class="text-blue-800 font-semibold hover:underline text-sm sm:text-base">
                     Data Aduan
                 </a>
-                <a href="{{ route('pengaduan.index') }}" class="text-blue-800 font-semibold hover:underline text-sm sm:text-base">
+                <a href="{{ route('pengaduan.status') }}" class="text-blue-800 font-semibold hover:underline text-sm sm:text-base">
                     Status Aduan
                 </a>
 

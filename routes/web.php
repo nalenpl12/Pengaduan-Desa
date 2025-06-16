@@ -31,6 +31,8 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/pengaduan/{id}', [PengaduanInfrastrukturController::class, 'destroy'])->name('pengaduan.destroy');
     Route::get('/pengaduan/{id}/edit', [PengaduanInfrastrukturController::class, 'edit'])->name('pengaduan.edit');
     Route::put('/pengaduan/{id}', [PengaduanInfrastrukturController::class, 'update'])->name('pengaduan.update');
+    Route::get('/status-aduan', [PengaduanInfrastrukturController::class, 'status'])->name('pengaduan.status')->middleware('auth');
+
 
     // Form saran pembangunan
     Route::get('/saran/create', [SaranPembangunanController::class, 'create'])->name('saran.create');

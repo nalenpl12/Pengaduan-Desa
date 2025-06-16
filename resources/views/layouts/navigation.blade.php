@@ -36,13 +36,13 @@
                         {{ strtoupper(substr(Auth::user()->nama ?? 'U', 0, 1)) }}
                     </button>
                     <div
-                        class="absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg hidden group-hover:block z-50">
+                        class="absolute right-0 w-48 bg-white border rounded shadow-lg hidden group-hover:block z-50">
                         <a href="{{ route('profile.show') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profil</a>
+                            class="block px-4 py-2 text-sm text-gray-800 hover:text-white font-semibold hover:bg-blue-600">Profil</a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit"
-                                class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                class="w-full text-left px-4 py-2 text-sm text-gray-800 hover:text-white font-semibold hover:bg-red-500">
                                 Logout
                             </button>
                         </form>

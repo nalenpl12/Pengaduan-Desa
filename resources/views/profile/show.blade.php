@@ -1,63 +1,55 @@
 @extends('layouts.app')
+
 @section('content')
-    <x-app-layout>
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Profil Saya
-            </h2>
-        </x-slot>
+    <div class="bg-white min-h-screen py-6 px-8 flex justify-between">
+        <!-- Kiri: Info User -->
+        <div class="w-full md:w-2/3">
+            <div class="flex items-center mb-6">
+                <div
+                    class="w-20 h-20 rounded-full border-2 border-black bg-gray-300 text-3xl font-bold text-black flex items-center justify-center mr-4">
+                    {{ strtoupper(substr(Auth::user()->nama, 0, 1)) }}
+                </div>
+                <h2 class="text-2xl font-bold">{{ Auth::user()->nama ?? 'User' }}</h2>
+            </div>
 
-        <div class="py-6">
-            <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
-                @if (session('status') === 'profil-updated')
-                    <div class="mb-4 text-green-600 font-medium">
-                        Data profil berhasil diperbarui.
-                    </div>
-                @endif
+            <div class="mb-6">
+                <h3 class="font-semibold text-lg mb-2">Informasi Pengguna</h3>
+                <p><span class="font-semibold">Alamat Email</span> : {{ Auth::user()->email }}</p>
+                <p><span class="font-semibold">Nomor Telepon</span> : {{ Auth::user()->telepon ?? 'Belum diisi' }}</p>
+                <p><span class="font-semibold">Alamat Rumah</span> : {{ Auth::user()->alamat ?? 'Belum diisi' }}</p>
+            </div>
 
-                <div class="bg-white shadow p-6 rounded-lg">
-                    <!-- Avatar -->
-                    <div class="flex items-center mb-6">
-                        <div
-                            class="w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center text-xl font-bold">
-                            {{ strtoupper(substr($user->nama, 0, 1)) }}
-                        </div>
-                        <div class="ml-4">
-                            <p class="font-semibold text-lg">{{ $user->nama }}</p>
-                            <p class="text-sm text-gray-600">{{ $user->role ?? 'user' }}</p>
-                        </div>
-                    </div>
+            <a href="{{ route('profile.edit') }}"
+                class="bg-blue-600 text-white px-6 py-2 rounded-xl mb-3 inline-block hover:bg-blue-800">
+                Ubah Profil
+            </a>
 
-                    <!-- Info Data -->
-                    <table class="table-auto text-sm w-full">
-                        <tr>
-                            <td class="font-medium w-40">Nama</td>
-                            <td>{{ $user->nama }}</td>
-                        </tr>
-                        <tr>
-                            <td class="font-medium">Email</td>
-                            <td>{{ $user->email }}</td>
-                        </tr>
-                        <tr>
-                            <td class="font-medium">Telepon</td>
-                            <td>{{ $user->telepon ?? '-' }}</td>
-                        </tr>
-                        <tr>
-                            <td class="font-medium">Alamat</td>
-                            <td>{{ $user->alamat ?? '-' }}</td>
-                        </tr>
-                    </table>
-
-                    <!-- Tombol Ubah -->
-                    <div class="mt-6">
-                        <a href="{{ route('profile.edit') }}"
-                            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                            ✏️ Ubah Profil
-                        </a>
-                        <a href="{{ route('dashboard') }}" class="ml-4 text-gray-600 underline">← Kembali</a>
-                    </div>
+            <div class="mt-6">
+                <h3 class="font-semibold text-lg mb-2">Aduan dan Saran</h3>
+                <div class="flex flex-wrap gap-4">
+                    <a href="{{ route('pengaduan.index') }}"
+                        class="bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-800">Daftar Aduan</a>
+                    <a href="{{ route('saran.index') }}"
+                        class="bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-800">Daftar Saran</a>
+                    <a href="{{ route('status.index') }}"
+                        class="bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-800">Status Aduan</a>
                 </div>
             </div>
+
+            <div class="mt-10">
+                <h3 class="font-semibold text-lg mb-2">Akun</h3>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="bg-red-600 text-white font-bold px-6 py-2 rounded-xl hover:bg-red-800">
+                        Keluar dari Akun
+                    </button>
+                </form>
+            </div>
         </div>
-    </x-app-layout>
+
+        <!-- Kanan: Ilustrasi -->
+        <div class="bg-white p-6 flex items-center justify-center">
+            <img src="{{ asset('img/profile-illustration.png') }}" alt="Ilustrasi Profil" class="max-w-full h-auto">
+        </div>
+    </div>
 @endsection

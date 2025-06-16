@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -38,6 +39,20 @@ class ProfileController extends Controller
         ]);
 
         $user->update($request->only('nama', 'email', 'telepon', 'alamat'));
+
+        if ($request->filled(['current_password', 'password', 'password_confirmation'])) {
+            $request->validate([
+                'current_password' => 'required',
+                'password' => 'required|min:8|confirmed',
+            ]);
+
+            if (!Hash::check($request->current_password, $user->password)) {
+                return back()->withErrors(['current_password' => 'Password lama tidak sesuai.']);
+            }
+
+            $user->password = Hash::make($request->password);
+            $user->save();
+        }
 
         return redirect()->route('profile.show')->with('status', 'profil-updated');
 

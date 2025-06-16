@@ -19,10 +19,13 @@
                 <a href="{{ route('dashboard') }}" class="text-blue-800 font-semibold hover:underline text-sm sm:text-base">
                     Dashboard
                 </a>
+                <a href="{{ route('saran.index') }}" class="text-blue-800 font-semibold hover:underline text-sm sm:text-base">
+                    Data Saran
+                </a>
                 <a href="{{ route('pengaduan.index') }}" class="text-blue-800 font-semibold hover:underline text-sm sm:text-base">
                     Data Aduan
                 </a>
-                <a href="{{ route('pengaduan.status') }}" class="text-blue-800 font-semibold hover:underline text-sm sm:text-base">
+                <a href="{{ route('status.index') }}" class="text-blue-800 font-semibold hover:underline text-sm sm:text-base">
                     Status Aduan
                 </a>
 

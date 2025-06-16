@@ -106,7 +106,7 @@ class PengaduanInfrastrukturController extends Controller
     public function status()
     {
         $pengaduan = PengaduanInfrastruktur::where('user_id', Auth::id())->latest()->get();
-        return view('pengaduan.status', compact('pengaduan'));
+        return view('status.status', compact('pengaduan'));
     }
 
 

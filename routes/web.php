@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PengaduanInfrastrukturController;
 use App\Http\Controllers\SaranPembangunanController;
+use App\Http\Controllers\StatusAduanController;
 
 // Halaman utama
 Route::get('/', function () {
@@ -31,7 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/pengaduan/{id}', [PengaduanInfrastrukturController::class, 'destroy'])->name('pengaduan.destroy');
     Route::get('/pengaduan/{id}/edit', [PengaduanInfrastrukturController::class, 'edit'])->name('pengaduan.edit');
     Route::put('/pengaduan/{id}', [PengaduanInfrastrukturController::class, 'update'])->name('pengaduan.update');
-    Route::get('/status-aduan', [PengaduanInfrastrukturController::class, 'status'])->name('pengaduan.status')->middleware('auth');
+    Route::get('/status-aduan', [StatusAduanController::class, 'index'])->name('status.index');
 
 
     // Form saran pembangunan

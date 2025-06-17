@@ -55,4 +55,9 @@ class User extends Authenticatable
         return $this->hasMany(\App\Models\PengaduanInfrastruktur::class);
     }
 
+    public function saran()
+    {
+        return $this->hasMany(SaranPembangunan::class);
+    }
+
 }

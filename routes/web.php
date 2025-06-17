@@ -7,10 +7,31 @@ use App\Http\Controllers\PengaduanInfrastrukturController;
 use App\Http\Controllers\SaranPembangunanController;
 use App\Http\Controllers\StatusAduanController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\AdminPengaduanController;
+use App\Http\Controllers\AdminSaranController;
+use App\Http\Controllers\AdminUserController;
 
 // Halaman utama
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/dashboard', [DashboardAdminController::class, 'index'])->name('dashboard');
+    Route::get('/saran', [SaranAdminController::class, 'index'])->name('saran.index');
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+});
+
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/pengaduan', [AdminPengaduanController::class, 'index'])->name('pengaduan.index');
+    Route::put('/pengaduan/{id}/status', [AdminPengaduanController::class, 'updateStatus'])->name('pengaduan.updateStatus');
+    Route::delete('/pengaduan/{id}', [AdminPengaduanController::class, 'destroy'])->name('pengaduan.destroy');
+    Route::get('/saran', [AdminSaranController::class, 'index'])->name('saran.index');
+    Route::delete('/saran/{id}', [AdminSaranController::class, 'destroy'])->name('saran.destroy');
+    Route::get('/users', [AdminUserController::class, 'index'])->name('users.index');
+    Route::get('/users/{id}/edit', [AdminUserController::class, 'edit'])->name('users.edit');
+    Route::put('/users/{id}', [AdminUserController::class, 'update'])->name('users.update');
+    Route::delete('/users/{id}', [AdminUserController::class, 'destroy'])->name('users.destroy');
 });
 
 // DASHBOARD - ganti closure dengan controller

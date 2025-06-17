@@ -21,4 +21,18 @@ class SaranPembangunan extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function up()
+    {
+        Schema::create('saran_pembangunans', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('jenis');
+            $table->string('lokasi');
+            $table->string('lokasi_detail');
+            $table->text('deskripsi')->nullable();
+            $table->timestamps();
+        });
+    }
+
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PengaduanInfrastrukturController;
 use App\Http\Controllers\SaranPembangunanController;
 use App\Http\Controllers\StatusAduanController;
+use App\Http\Controllers\Admin\AdminDashboardController;
 
 // Halaman utama
 Route::get('/', function () {
@@ -18,13 +19,14 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
 
 // ADMIN
-Route::get('/admin/dashboard', [\App\Http\Controllers\Admin\AdminDashboardController::class, 'index'])->name('admin.dashboard');
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
 // ROUTE YANG HANYA BISA DIAKSES SETELAH LOGIN
 Route::middleware(['auth'])->group(function () {
+    // Admin
+    Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 
     // Profil
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');

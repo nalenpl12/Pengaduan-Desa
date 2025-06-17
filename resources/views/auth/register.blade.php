@@ -61,7 +61,7 @@
         <div class="mt-4 text-center">
             <p>----------------------------------------------------------</p>
             <span class="text-sm text-gray-600">{{ __('Sudah punya akun?') }}</span>
-            <a href="{{ route('login') }}" class="  `1`w23``1wtext-blue-600 hover:underline ms-1">
+            <a href="{{ route('login') }}" class="  `1`w23``1w text-blue-600 hover:underline ms-1">
                 {{ __('Masuk di sini') }}
             </a>
         </div>

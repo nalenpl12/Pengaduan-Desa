@@ -7,6 +7,7 @@
     <title>Admin - {{ config('app.name', 'Pengaduan Desa') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body class="bg-gray-100 text-gray-900 min-h-screen">

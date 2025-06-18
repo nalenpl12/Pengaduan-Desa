@@ -18,6 +18,7 @@ Route::get('/', function () {
 
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/pengaduan', [AdminPengaduanController::class, 'index'])->name('pengaduan.index');
     Route::put('/pengaduan/{id}/status', [AdminPengaduanController::class, 'updateStatus'])->name('pengaduan.updateStatus');

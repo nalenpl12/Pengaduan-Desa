@@ -71,10 +71,10 @@
                     <button type="submit" class="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-6 rounded-xl">
                         Kirim
                     </button>
-                    <a href="{{ route('pengaduan.index') }}"
+                    {{-- <a href="{{ route('pengaduan.index') }}"
                         class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-2 px-6 rounded-xl">
                         Lihat Data Aduan
-                    </a>
+                    </a> --}}
                 </div>
             </form>
         </div>

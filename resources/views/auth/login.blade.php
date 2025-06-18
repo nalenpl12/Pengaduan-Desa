@@ -29,11 +29,11 @@
                     @csrf
 
                     <input type="email" name="email" required
-                        class="w-full px-4 py-3 mb-4 bg-gray-200 border-b-4 border-black rounded"
+                        class="w-full px-3 py-2 mb-4 bg-gray-200 border-b-4 border-black rounded"
                         placeholder="Email" />
 
                     <input type="password" name="password" required
-                        class="w-full px-4 py-3 mb-6 bg-gray-200 border-b-4 border-black rounded"
+                        class="w-full px-3 py-2 mb-6 bg-gray-200 border-b-4 border-black rounded"
                         placeholder="Kata Sandi" />
 
                     <button type="submit"

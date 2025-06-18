@@ -11,7 +11,7 @@
 
 <body class="bg-gradient-to-b from-blue-200 to-white">
     <div class="min-h-screen flex items-center justify-center">
-        <div class="flex flex-col md:flex-row w-full max-w-5xl bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div class="flex flex-col md:flex-row w-full max-w-5xl bg-white rounded-2xl shadow-xl overflow-hidden">
             <!-- Bagian kiri -->
             <div class="md:w-1/2 bg-blue-800 text-white p-10 flex flex-col justify-center">
                 <h2 class="text-3xl font-bold mb-6 leading-tight">

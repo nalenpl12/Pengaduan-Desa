@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - {{ config('app.name', 'Pengaduan Desa') }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png">
 </head>
 
 <body class="bg-gray-100 text-gray-900 min-h-screen">

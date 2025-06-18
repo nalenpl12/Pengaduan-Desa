@@ -1,56 +1,55 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="id">
 
-    <h2 class="text-2xl font-bold mb-6 text-center">{{ __('Masuk') }}</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Pengaduan Desa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png">
+</head>
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+<body class="bg-gradient-to-b from-blue-200 to-white">
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="flex flex-col md:flex-row w-full max-w-5xl bg-white rounded-2xl shadow-lg overflow-hidden">
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
-                autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <!-- Bagian kiri -->
+            <div class="md:w-1/2 bg-blue-800 text-white p-10 flex flex-col justify-center">
+                <h2 class="text-3xl font-bold mb-6 leading-tight">
+                    Selamat Datang di sistem<br>Pengaduan Infrastruktur<br>Desa Pekarungan
+                </h2>
+                <img src="{{ asset('img/login-illustration.png') }}" alt="Ilustrasi Login" class="w-full mt-4">
+            </div>
+
+            <!-- Bagian kanan -->
+            <div class="md:w-1/2 bg-[#FFF6E9] p-10">
+                <h2 class="text-2xl font-bold text-blue-800 mb-6 mt-14">MASUK</h2>
+
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+
+                    <input type="email" name="email" required
+                        class="w-full px-4 py-3 mb-4 bg-gray-200 border-b-4 border-black rounded"
+                        placeholder="Email" />
+
+                    <input type="password" name="password" required
+                        class="w-full px-4 py-3 mb-6 bg-gray-200 border-b-4 border-black rounded"
+                        placeholder="Kata Sandi" />
+
+                    <button type="submit"
+                        class="w-full bg-blue-700 text-white font-bold py-2 rounded-xl hover:bg-blue-800 transition">
+                        Masuk
+                    </button>
+                </form>
+
+                <p class="mt-6 text-sm text-gray-700">
+                    Belum punya akun?
+                    <a href="{{ route('register') }}" class="text-blue-700 font-semibold hover:underline">Buat Akun</a>
+                </p>
+            </div>
+
         </div>
+    </div>
+</body>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
-                autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox"
-                    class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    href="{{ route('password.request') }}">
-                    {{ __('Lupa Password') }}
-                </a>
-            @endif
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-
-        <div class="mt-4 text-center">
-            <p>----------------------------------------------------------</p>
-            <span class="text-sm text-gray-600">{{ __('Belum punya akun?') }}</span>
-            <a href="{{ route('register') }}" class="text-blue-600 hover:underline ms-1">
-                {{ __('Daftar di sini') }}
-            </a>
-    </form>
-</x-guest-layout>
+</html>

@@ -52,7 +52,7 @@
                         placeholder="Konfirmasi Kata Sandi" />
 
                     <button type="submit"
-                        class="w-full bg-blue-700 text-white font-bold py-2 rounded-xl hover:bg-blue-800 transition">
+                        class="w-full bg-blue-600 text-white font-bold py-2 rounded-xl hover:bg-blue-800 transition">
                         Daftar
                     </button>
                 </form>
